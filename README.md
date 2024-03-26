@@ -7,4 +7,4 @@ For NPM install
 "npm install " for both frontend and and server  
 
 For RUN
-"npm run dev" for frontend and server
+"npm run dev" for both frontend and server
