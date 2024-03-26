@@ -21,8 +21,8 @@ function App() {
           <Route path="/addNew" element={<AddBook />} />
           <Route path="/editBook/:id" element={<EditBook />}/>
         </Route>
-        <Route path="/login" element={user ? <BookList /> : <Login />} />
-        <Route path="/register" element={user ? <BookList /> : <Register />} />
+        <Route path="/login" element={user ? <RootLayout /> : <Login />} />
+        <Route path="/register" element={user ? <RootLayout /> : <Register />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
