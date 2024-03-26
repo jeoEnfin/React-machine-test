@@ -16,13 +16,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={user ? <RootLayout /> : <Login />}>
+        <Route path="/" element={user ? <RootLayout /> : <Navigate to="/login" />}>
           <Route path="/" element={<BookList />} />
           <Route path="/addNew" element={<AddBook />} />
           <Route path="/editBook/:id" element={<EditBook />}/>
         </Route>
-        <Route path="/login" element={user ? <RootLayout /> : <Login />} />
-        <Route path="/register" element={user ? <RootLayout /> : <Register />} />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

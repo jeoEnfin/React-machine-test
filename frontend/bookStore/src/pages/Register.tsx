@@ -20,8 +20,7 @@ function Register({ }: Props) {
       navigate('/login');
     }
   }, [userRegisterStatus]);
-
-
+  
   return (
     <div className="wrapper vh-100">
       <div className="row align-items-center h-100">
@@ -88,7 +87,7 @@ function Register({ }: Props) {
                   className="form-control"
                   id="inputPassword6"
                   name="confirmPassword"
-                  
+                  onChange={(e)=> updateRegisterInfo({ ...registerInfo, confirmPassword: e.target.value })}
                 />
               </div>
             </div>
