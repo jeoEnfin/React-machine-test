@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -6,12 +6,7 @@ type Props = {}
 
 function Register({ }: Props) {
   const navigate = useNavigate();
-  const [password, setPassword] = useState({
-    newPassword: "",
-    confirmPassword: "",
-  })
-  const [errorPassword, setErrorPassword] = useState('');
-
+ 
   const {
     registerInfo,
     updateRegisterInfo,
@@ -26,20 +21,6 @@ function Register({ }: Props) {
     }
   }, [userRegisterStatus]);
 
-  const handleOnChange = (e: any) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    // console.log(name, value);
-    setPassword({
-      ...password,
-      [name]: value,
-    });
-    if (password.newPassword === password.confirmPassword) {
-      updateRegisterInfo({ ...registerInfo, password: password.confirmPassword })
-    } else {
-      setErrorPassword('password mismatch')
-    }
-  };
 
   return (
     <div className="wrapper vh-100">
@@ -88,9 +69,6 @@ function Register({ }: Props) {
             </div>
           </div>
           <hr className="my-4" />
-          {errorPassword && <div className="alert alert-warning" role="alert">
-            <span className="fe fe-alert-triangle fe-16 mr-2" />{errorPassword}{" "}
-          </div>}
           <div className="row mb-4">
             <div className="col-md-6">
               <div className="form-group">
@@ -100,7 +78,7 @@ function Register({ }: Props) {
                   className="form-control"
                   id="inputPassword5"
                   name="newPassword"
-                  onChange={handleOnChange}
+                  onChange={(e)=> updateRegisterInfo({ ...registerInfo, password: e.target.value })}
                 />
               </div>
               <div className="form-group">
@@ -110,7 +88,7 @@ function Register({ }: Props) {
                   className="form-control"
                   id="inputPassword6"
                   name="confirmPassword"
-                  onChange={handleOnChange}
+                  
                 />
               </div>
             </div>

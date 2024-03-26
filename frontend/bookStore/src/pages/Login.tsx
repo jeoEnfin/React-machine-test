@@ -11,7 +11,7 @@ function Login({ }: Props) {
         LoginUser,
         updateLoginInfo,
         LoginInfo,
-        loginError
+        loginError,
     }: any = useContext(AuthContext);
 
     useEffect(() => {
